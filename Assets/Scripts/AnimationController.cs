@@ -11,7 +11,7 @@ public class AnimationController : MonoBehaviour
     public float WalkVelocity = 2f;
 
     public float acceleration = 2.0f;
-    public float deceleration = 2.0f;
+	public float deceleration = 2.0f;
 
     //increase perfomance
     int VelocityZHash;
@@ -35,13 +35,13 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
 
-        UnityEngine.Debug.Log("X: " + velocityX);
-        UnityEngine.Debug.Log("Z: " + velocityZ);
+	    //UnityEngine.Debug.Log("X: " + velocityX);
+	    //UnityEngine.Debug.Log("Z: " + velocityZ);
 
-        forwardPressed = Input.GetKey(KeyCode.W);
-        leftPressed = Input.GetKey(KeyCode.A);
-        rightPressed = Input.GetKey(KeyCode.D);
-        backwardPressed = Input.GetKey(KeyCode.S);
+	    forwardPressed = Input.GetKey(KeyCode.W);
+	    leftPressed = Input.GetKey(KeyCode.A);
+	    rightPressed = Input.GetKey(KeyCode.D);
+	    backwardPressed = Input.GetKey(KeyCode.S);
 
         if (canCrouch)
         {

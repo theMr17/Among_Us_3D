@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
 	[SerializeField] private float turnSmoothVelocity;
 	[SerializeField] private  Transform camTransform;
 	[SerializeField] private  Transform mainRigTransform;
+	//[SerializeField] private GameObject camera;
+	
+	private Vector2 fingerDown;
+	private Vector2 fingerUp;
+	public bool detectSwipeOnlyAfterRelease = false;
+
+	public float SWIPE_THRESHOLD = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,32 +28,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //bool forwardPressed, leftPressed, rightPressed, backwardPressed;
-
-        //forwardPressed = Input.GetKey(KeyCode.W);
-        //leftPressed = Input.GetKey(KeyCode.A);
-        //rightPressed = Input.GetKey(KeyCode.D);
-        //backwardPressed = Input.GetKey(KeyCode.S);
-
-        Move();
+	    Move();
+	    transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     }
-
-
-    ////Movement
-    //void Move(bool forwardPressed, bool leftPressed, bool rightPressed, bool backwardPressed)
-    //{
-    //    if (forwardPressed)
-	//        rb.velocity = transform.TransformDirection(new Vector3(0f, 0f, Time.deltaTime * 50));
-    //    else if(backwardPressed)
-	//        rb.velocity = transform.TransformDirection(new Vector3(0f, 0f, Time.deltaTime * -50));
-    //    else
-	//        rb.velocity = new Vector3(0f, 0f, 0f);
-	        
-	//    if (leftPressed)
-	//	    rb.velocity = transform.TransformDirection(new Vector3(Time.deltaTime * -50, 0f, 0f));
-	//    else if(rightPressed)
-	//	    rb.velocity = transform.TransformDirection(new Vector3(Time.deltaTime * 50, 0f, 0f));
-	//}
     
 	private void Move()
 	{
